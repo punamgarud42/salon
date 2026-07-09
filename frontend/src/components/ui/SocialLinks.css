@@ -1,0 +1,22 @@
+.social-links {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.social-links__link {
+  border-radius: 50%;
+  border: 1px solid var(--border-hairline);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  transition: color var(--duration-base) var(--ease-signature),
+              border-color var(--duration-base) var(--ease-signature),
+              transform var(--duration-fast) var(--ease-signature);
+}
+
+.social-links__link:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}

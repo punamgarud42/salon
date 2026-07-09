@@ -1,0 +1,66 @@
+.gallery-page {
+  padding-top: var(--space-8);
+  padding-bottom: var(--space-9);
+}
+
+.gallery-page__lede {
+  max-width: 60ch;
+  font-size: var(--fs-body-lg);
+}
+
+.before-after-section {
+  background: var(--bg-elevated);
+  border-top: 1px solid var(--border-hairline);
+  padding: var(--space-9) 0;
+}
+
+.before-after-section__tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin: var(--space-5) 0 var(--space-6);
+}
+
+.before-after-section__tab {
+  background: transparent;
+  border: 1px solid var(--border-hairline);
+  color: var(--text-muted);
+  padding: 0.5rem 1.1rem;
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-body-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color var(--duration-base) var(--ease-signature), color var(--duration-base) var(--ease-signature), background-color var(--duration-base) var(--ease-signature);
+}
+
+.before-after-section__tab:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.before-after-section__tab.is-active {
+  background: linear-gradient(135deg, var(--champagne-bright), var(--champagne));
+  border-color: transparent;
+  color: var(--ink);
+}
+
+.before-after-section__slider {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.before-after-section__caption {
+  text-align: center;
+  margin-top: var(--space-3);
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.before-after-section__note {
+  text-align: center;
+  max-width: 60ch;
+  margin: var(--space-6) auto 0;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  opacity: 0.8;
+}

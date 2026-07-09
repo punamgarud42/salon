@@ -1,0 +1,19 @@
+.testimonial-preview {
+  padding: var(--space-9) 0;
+}
+
+.testimonial-preview__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+  margin-top: var(--space-6);
+}
+
+.testimonial-preview__footer {
+  text-align: center;
+  margin-top: var(--space-7);
+}
+
+@media (max-width: 900px) {
+  .testimonial-preview__grid { grid-template-columns: 1fr; }
+}

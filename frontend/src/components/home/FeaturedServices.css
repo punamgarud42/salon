@@ -1,0 +1,28 @@
+.featured-services {
+  padding: var(--space-9) 0;
+}
+
+.featured-services__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-5);
+  margin-top: var(--space-6);
+}
+
+.featured-services__footer {
+  text-align: center;
+  margin-top: var(--space-7);
+}
+
+.featured-services__hint {
+  color: var(--text-muted);
+  margin-top: var(--space-6);
+}
+
+@media (max-width: 1024px) {
+  .featured-services__grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 560px) {
+  .featured-services__grid { grid-template-columns: 1fr; }
+}

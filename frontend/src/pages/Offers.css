@@ -1,0 +1,21 @@
+.offers-page {
+  padding-top: var(--space-8);
+  padding-bottom: var(--space-9);
+}
+
+.offers-page__lede {
+  max-width: 62ch;
+  font-size: var(--fs-body-lg);
+}
+
+.offers-page__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.offers-page__empty {
+  text-align: center;
+  color: var(--text-muted);
+  padding: var(--space-7) 0;
+}

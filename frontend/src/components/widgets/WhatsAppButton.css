@@ -1,0 +1,57 @@
+.whatsapp-fab {
+  position: fixed;
+  right: var(--space-5);
+  bottom: var(--space-5);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #25D366;
+  color: #0b2b16;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  z-index: var(--z-whatsapp);
+  animation: whatsapp-pop var(--duration-slow) var(--ease-signature) both;
+  animation-delay: 600ms;
+  transition: transform var(--duration-fast) var(--ease-signature),
+              box-shadow var(--duration-base) var(--ease-signature);
+}
+
+.whatsapp-fab:hover {
+  transform: scale(1.08);
+  box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+}
+
+.whatsapp-fab::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid #25D366;
+  animation: whatsapp-ping 2.4s ease-out infinite;
+}
+
+@keyframes whatsapp-pop {
+  from { opacity: 0; transform: scale(0.4) translateY(20px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes whatsapp-ping {
+  0% { transform: scale(1); opacity: 0.6; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .whatsapp-fab { animation: none; }
+  .whatsapp-fab::after { animation: none; display: none; }
+}
+
+@media (max-width: 480px) {
+  .whatsapp-fab {
+    right: var(--space-4);
+    bottom: var(--space-4);
+    width: 50px;
+    height: 50px;
+  }
+}

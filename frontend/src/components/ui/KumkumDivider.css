@@ -1,0 +1,18 @@
+.kumkum-divider {
+  display: flex;
+  margin: var(--space-3) 0 var(--space-5);
+}
+
+.kumkum-divider--left { justify-content: flex-start; }
+.kumkum-divider--center { justify-content: center; margin-left: auto; margin-right: auto; }
+.kumkum-divider--right { justify-content: flex-end; margin-left: auto; }
+
+.kumkum-divider__stroke {
+  stroke-dasharray: 220;
+  stroke-dashoffset: 220;
+  transition: stroke-dashoffset var(--duration-slow) var(--ease-signature);
+}
+
+.kumkum-divider__stroke.is-drawn {
+  stroke-dashoffset: 0;
+}

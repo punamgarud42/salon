@@ -1,0 +1,117 @@
+.offer-banner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-6);
+  background: linear-gradient(120deg, #2A1D2F 0%, #3A1F2B 60%, #46302A 100%);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6) var(--space-7);
+  overflow: hidden;
+}
+
+.offer-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 85% 20%, rgba(228,197,131,0.18), transparent 55%);
+  pointer-events: none;
+}
+
+.offer-banner__badge {
+  flex-shrink: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--ink);
+  background: linear-gradient(135deg, var(--champagne-bright), var(--champagne));
+  padding: 0.6rem 1rem;
+  border-radius: var(--radius-md);
+  z-index: 1;
+}
+
+.offer-banner__body {
+  flex: 1 1 220px;
+  z-index: 1;
+}
+
+.offer-banner__title {
+  margin-bottom: var(--space-1);
+}
+
+.offer-banner__desc {
+  margin-bottom: var(--space-3);
+  font-size: var(--fs-body-sm);
+}
+
+.offer-banner__code {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px dashed var(--border-hairline);
+  color: var(--champagne-bright);
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 0.4rem 0.8rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: border-color var(--duration-fast) var(--ease-signature);
+}
+
+.offer-banner__code:hover {
+  border-color: var(--accent);
+}
+
+.offer-banner__countdown {
+  display: flex;
+  gap: var(--space-3);
+  z-index: 1;
+}
+
+.countdown-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 46px;
+  background: rgba(0,0,0,0.25);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-sm);
+  padding: 0.4rem 0.2rem;
+}
+
+.countdown-unit__value {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--accent-strong);
+  font-variant-numeric: tabular-nums;
+}
+
+.countdown-unit__label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+}
+
+.offer-banner__expired {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.offer-banner__cta {
+  z-index: 1;
+  flex-shrink: 0;
+}
+
+@media (max-width: 700px) {
+  .offer-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+  .offer-banner__cta { width: 100%; }
+}

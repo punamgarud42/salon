@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Vermé — Salon & Beauty Academy in Nagpur</title>
+    <meta name="description" content="Luxury salon services and a professional beauty academy in Nagpur, Maharashtra. Book appointments for hair, makeup, skin and mehendi, or apply to our academy's diploma and certificate courses." />
+    <meta name="keywords" content="salon Nagpur, beauty academy Nagpur, hairdressing course, makeup course, bridal makeup, mehendi, skincare facial" />
+    <link rel="canonical" href="https://your-domain.example/" />
+    <meta name="theme-color" content="#1B1420" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph — how this looks when shared on WhatsApp, Facebook, LinkedIn, etc. -->
+    <meta property="og:type" content="business.business" />
+    <meta property="og:site_name" content="Vermé" />
+    <meta property="og:title" content="Vermé — Salon & Beauty Academy in Nagpur" />
+    <meta property="og:description" content="Luxury salon services and a professional beauty academy in Nagpur, Maharashtra. Book appointments or apply to our academy's courses." />
+    <meta property="og:url" content="https://your-domain.example/" />
+    <!-- og:image intentionally omitted: pointing this at a real, on-brand share
+         image (1200x630px) is a design-asset task, not a code task — see the
+         README's Phase 10 section for what to add once you have one. -->
+
+    <!-- Twitter Card — falls back to the Open Graph tags above without og:image -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Vermé — Salon & Beauty Academy in Nagpur" />
+    <meta name="twitter:description" content="Luxury salon services and a professional beauty academy in Nagpur, Maharashtra." />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <!-- No apple-touch-icon (PNG) yet — generating one needs a real design
+         pass (multiple sizes, safe-area padding for iOS's rounded mask),
+         not something to fabricate here. The SVG favicon above covers all
+         modern browsers in the meantime. -->
+
+    <!-- Font loading: preconnect + a real <link rel="stylesheet"> instead of
+         a CSS @import (which the browser can't discover until it has already
+         downloaded and parsed the stylesheet that contains it — a real,
+         measurable render-blocking delay on first load). -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    <!--
+      Structured data (schema.org LocalBusiness / BeautySalon), so search
+      engines that DO understand this can show a rich result (address,
+      hours, rating) instead of just a blue link. This is a static snapshot
+      matching the default business info — App.jsx patches the relevant
+      fields at runtime once real BusinessInfo loads from the backend, so
+      it stays accurate after you edit it in the admin dashboard, without
+      needing a rebuild. See lib/seo.js's patchBusinessJsonLd.
+    -->
+    <script type="application/ld+json" id="business-jsonld">
+      {
+        "@context": "https://schema.org",
+        "@type": "BeautySalon",
+        "name": "Vermé",
+        "description": "Luxury salon services and a professional beauty academy.",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Shop 12, MG Road",
+          "addressLocality": "Nagpur",
+          "addressRegion": "Maharashtra",
+          "addressCountry": "IN"
+        },
+        "telephone": "+911234567890",
+        "openingHours": "Tu-Su 10:00-20:00",
+        "sameAs": [
+          "https://instagram.com/",
+          "https://facebook.com/",
+          "https://youtube.com/"
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

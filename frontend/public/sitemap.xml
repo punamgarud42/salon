@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Only the homepage is listed here — on purpose, not by oversight.
+
+  This site uses hash-based routing (#/services, #/book, etc.), and search
+  engines treat everything after a "#" as the same URL, not a separate
+  indexable page. Listing "https://your-domain.example/#/services" here
+  would not get that content indexed as its own result.
+
+  To get every page indexed separately, the two real options are:
+    1. Migrate routing from hash-based (#/services) to path-based
+       (/services) using the History API, and configure your host to serve
+       index.html for all paths (a standard SPA hosting rule) — but the
+       content is still only rendered client-side, so many crawlers still
+       won't see it fully.
+    2. Add server-side rendering or static pre-rendering (e.g. migrating
+       to Next.js, or using a prerendering service) so each page has real,
+       crawlable HTML content at its own URL. This is the actually
+       reliable path to multi-page SEO for a React app.
+
+  Both are architecture changes beyond a "polish pass" — flag it if you
+  want to pursue either as a follow-up phase.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://your-domain.example/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>

@@ -1,0 +1,31 @@
+.filter-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin: var(--space-6) 0;
+}
+
+.filter-tabs__tab {
+  background: transparent;
+  border: 1px solid var(--border-hairline);
+  color: var(--text-muted);
+  padding: 0.5rem 1.1rem;
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-body-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color var(--duration-base) var(--ease-signature),
+              color var(--duration-base) var(--ease-signature),
+              background-color var(--duration-base) var(--ease-signature);
+}
+
+.filter-tabs__tab:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.filter-tabs__tab.is-active {
+  background: linear-gradient(135deg, var(--champagne-bright), var(--champagne));
+  border-color: transparent;
+  color: var(--ink);
+}

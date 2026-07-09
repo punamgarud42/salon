@@ -1,0 +1,95 @@
+.admin-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.admin-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.admin-form__label {
+  font-size: var(--fs-body-sm);
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.admin-form__input,
+.admin-form__textarea {
+  width: 100%;
+  padding: 0.7rem 0.9rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-hairline);
+  background: var(--ink);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: var(--fs-body-sm);
+}
+
+.admin-form__textarea {
+  resize: vertical;
+}
+
+.admin-form__input:focus-visible,
+.admin-form__textarea:focus-visible {
+  border-color: var(--accent);
+}
+
+.admin-form__error {
+  color: var(--rose);
+  font-size: var(--fs-body-sm);
+  margin: 0;
+}
+
+.admin-form__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+}
+
+/* Shared admin button style — distinct from the public site's pill Button
+   component, since this is an internal tool, not brand-facing chrome. */
+.admin-btn {
+  padding: 0.6rem 1.2rem;
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-body-sm);
+  font-weight: 700;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background-color var(--duration-fast) var(--ease-signature), border-color var(--duration-fast) var(--ease-signature);
+}
+
+.admin-btn--primary {
+  background: linear-gradient(135deg, var(--champagne-bright), var(--champagne));
+  color: var(--ink);
+}
+
+.admin-btn--primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.admin-btn--ghost {
+  background: transparent;
+  border-color: var(--border-hairline);
+  color: var(--text-primary);
+}
+
+.admin-btn--ghost:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.admin-btn--danger {
+  background: transparent;
+  border-color: rgba(201, 138, 147, 0.4);
+  color: var(--rose);
+}
+
+.admin-btn--danger:hover {
+  border-color: var(--rose);
+  background: rgba(201, 138, 147, 0.1);
+}

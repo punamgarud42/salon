@@ -1,0 +1,101 @@
+/*
+  DESIGN SYSTEM — "Vermé" luxury salon & academy
+  ------------------------------------------------
+  Direction: an Indian vanity-room at dusk, not a generic "beauty brand" cream page.
+  Deep aubergine/ink grounds, warm champagne gold for precision accents, dusty rose
+  as the human/warm note. The signature motif (see KumkumDivider component) is a
+  hand-swept gold ink stroke — a nod to kumkum/sindoor swipes and the calligraphic
+  flourish of a mirror's gilt edge — used as dividers and underlines instead of
+  generic straight rules or numbered markers.
+*/
+
+:root {
+  /* ---- Color: 6 named hex values ---- */
+  --ink: #1B1420;            /* primary background — deep aubergine-black */
+  --ink-soft: #241B29;       /* elevated surface on ink */
+  --champagne: #C9A15A;      /* signature accent — brushed gold */
+  --champagne-bright: #E4C583;
+  --rose: #C98A93;           /* warm secondary accent — dusty rose */
+  --ivory: #F6EEE4;          /* light surface / reversed text */
+  --ivory-dim: #D9CFC3;      /* muted text on ink */
+  --forest: #46523F;         /* academy/success note, used sparingly */
+
+  /* Semantic aliases */
+  --bg: var(--ink);
+  --bg-elevated: var(--ink-soft);
+  --text-primary: var(--ivory);
+  --text-muted: var(--ivory-dim);
+  --text-on-light: var(--ink);
+  --accent: var(--champagne);
+  --accent-strong: var(--champagne-bright);
+  --accent-warm: var(--rose);
+  --border-hairline: rgba(201, 161, 90, 0.22);
+  --overlay-scrim: rgba(27, 20, 32, 0.72);
+
+  /* ---- Type ---- */
+  /* Display: Fraunces — warm, slightly eccentric serif with soft ink-flourish italics */
+  --font-display: 'Fraunces', 'Iowan Old Style', serif;
+  /* Body / utility: Manrope — geometric, quiet, doesn't compete with the display face */
+  --font-body: 'Manrope', 'Segoe UI', sans-serif;
+
+  --fs-eyebrow: 0.75rem;      /* 12px */
+  --fs-body-sm: 0.875rem;     /* 14px */
+  --fs-body: 1rem;            /* 16px */
+  --fs-body-lg: 1.125rem;     /* 18px */
+  --fs-h4: 1.5rem;            /* 24px */
+  --fs-h3: 2rem;              /* 32px */
+  --fs-h2: 2.75rem;           /* 44px */
+  --fs-h1: clamp(2.75rem, 5vw + 1rem, 4.5rem); /* 44px -> 72px */
+
+  --lh-tight: 1.1;
+  --lh-snug: 1.35;
+  --lh-relaxed: 1.65;
+
+  --ls-eyebrow: 0.14em;
+
+  /* ---- Spacing (8px base, one irregular step for rhythm) ---- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4.5rem;
+  --space-9: 6.5rem;
+
+  --content-max: 1180px;
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+
+  /* ---- Shape ---- */
+  --radius-sm: 4px;
+  --radius-md: 10px;
+  --radius-lg: 18px;
+  --radius-pill: 999px;
+
+  /* ---- Elevation ---- */
+  --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.28);
+  --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.38);
+  --shadow-gold-glow: 0 0 0 1px rgba(201,161,90,0.35), 0 8px 28px rgba(201,161,90,0.14);
+
+  /* ---- Motion ---- */
+  --ease-signature: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-fast: 160ms;
+  --duration-base: 320ms;
+  --duration-slow: 640ms;
+
+  /* ---- Z-index scale ---- */
+  --z-nav: 100;
+  --z-mobile-menu: 110;
+  --z-progress: 120;
+  --z-whatsapp: 90;
+  --z-modal: 200;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 0ms;
+    --duration-base: 0ms;
+    --duration-slow: 0ms;
+  }
+}

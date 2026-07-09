@@ -1,0 +1,199 @@
+.enrollment-page {
+  padding-top: var(--space-8);
+  padding-bottom: var(--space-9);
+  max-width: 780px;
+}
+
+.enrollment-form {
+  margin-top: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-7);
+}
+
+.enrollment-form__section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.enrollment-form__label {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--text-primary);
+}
+
+.enrollment-form__select,
+.enrollment-form__input,
+.enrollment-form__textarea {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-hairline);
+  background: var(--bg-elevated);
+  color: var(--text-primary);
+  font-size: var(--fs-body-sm);
+  font-family: var(--font-body);
+}
+
+.enrollment-form__textarea { resize: vertical; }
+
+.enrollment-form__select:focus-visible,
+.enrollment-form__input:focus-visible,
+.enrollment-form__textarea:focus-visible {
+  border-color: var(--accent);
+}
+
+.enrollment-form__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+
+.enrollment-form__batches {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.batch-option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-3);
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-hairline);
+  background: var(--bg-elevated);
+  color: var(--text-primary);
+  cursor: pointer;
+  text-align: left;
+  transition: border-color var(--duration-fast) var(--ease-signature);
+}
+
+.batch-option:hover:not(.is-disabled) {
+  border-color: var(--accent);
+}
+
+.batch-option.is-active {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-gold-glow);
+}
+
+.batch-option.is-disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.batch-option__dates {
+  font-size: var(--fs-body-sm);
+  font-weight: 600;
+}
+
+.batch-option__status {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-pill);
+  white-space: nowrap;
+}
+
+.batch-option__status--open { background: rgba(70, 82, 63, 0.35); color: #A9C79A; }
+.batch-option__status--filling-fast { background: rgba(201, 161, 90, 0.2); color: var(--champagne-bright); }
+.batch-option__status--full { background: rgba(201, 138, 147, 0.18); color: var(--rose); }
+
+.enrollment-form__hint {
+  color: var(--text-muted);
+  font-size: var(--fs-body-sm);
+  margin: 0;
+}
+
+.enrollment-form__error {
+  color: var(--rose);
+  font-size: 0.8rem;
+  margin: var(--space-1) 0 0;
+}
+
+.enrollment-form__submit {
+  align-self: flex-start;
+}
+
+/* ---- Confirmation ---- */
+
+.enrollment-confirmation {
+  padding-top: var(--space-9);
+  padding-bottom: var(--space-9);
+  max-width: 620px;
+  text-align: center;
+}
+
+.enrollment-confirmation__badge {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto var(--space-4);
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--champagne-bright), var(--champagne));
+  color: var(--ink);
+  font-size: 1.8rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.enrollment-confirmation__ref {
+  font-size: var(--fs-body-lg);
+  color: var(--text-muted);
+}
+
+.enrollment-confirmation__ref strong {
+  color: var(--accent);
+  font-family: var(--font-display);
+  letter-spacing: 0.04em;
+}
+
+.enrollment-confirmation__details {
+  text-align: left;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5) var(--space-6);
+  margin: var(--space-5) 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.enrollment-confirmation__details div {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.enrollment-confirmation__details dt {
+  color: var(--text-muted);
+  font-size: var(--fs-body-sm);
+}
+
+.enrollment-confirmation__details dd {
+  margin: 0;
+  font-weight: 700;
+  text-align: right;
+}
+
+.enrollment-confirmation__note {
+  font-size: var(--fs-body-sm);
+}
+
+.enrollment-confirmation__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+}
+
+@media (max-width: 640px) {
+  .enrollment-form__grid { grid-template-columns: 1fr; }
+}

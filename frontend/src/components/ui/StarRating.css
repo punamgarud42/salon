@@ -1,0 +1,12 @@
+.star-rating {
+  display: flex;
+  gap: 2px;
+}
+
+.star-rating__star {
+  color: var(--border-hairline);
+}
+
+.star-rating__star.is-filled {
+  color: var(--champagne);
+}

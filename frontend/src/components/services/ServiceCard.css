@@ -1,0 +1,119 @@
+.service-card {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: service-card-fade-up 0.45s ease both;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(18, 20, 22, 0.12);
+}
+
+.service-card__media {
+  position: relative;
+  height: 180px;
+  overflow: hidden;
+  margin: calc(var(--space-5) * -1) calc(var(--space-5) * -1) var(--space-4);
+  border-top-left-radius: var(--radius-lg);
+  border-top-right-radius: var(--radius-lg);
+}
+
+.service-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.service-card:hover .service-card__image {
+  transform: scale(1.06);
+}
+
+.service-card__swatch {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  border-top-left-radius: var(--radius-lg);
+  border-top-right-radius: var(--radius-lg);
+}
+
+.service-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3));
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: var(--space-3);
+  border-top-left-radius: var(--radius-lg);
+  border-top-right-radius: var(--radius-lg);
+}
+
+.service-card__icon {
+  color: rgba(246, 238, 228, 0.92);
+}
+
+.service-card__category {
+  font-size: var(--fs-eyebrow);
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  font-weight: 700;
+  color: rgba(246, 238, 228, 0.92);
+  background: rgba(18, 20, 22, 0.6);
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-pill);
+  backdrop-filter: blur(4px);
+}
+
+.service-card__name {
+  font-size: var(--fs-h4);
+  margin-bottom: var(--space-2);
+}
+
+.service-card__desc {
+  font-size: var(--fs-body-sm);
+  flex-grow: 1;
+}
+
+.service-card__meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: var(--space-4);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--border-hairline);
+}
+
+.service-card__price {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.service-card__duration {
+  font-size: var(--fs-body-sm);
+  color: var(--text-muted);
+}
+
+.service-card__cta {
+  width: 100%;
+}
+
+@keyframes service-card-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,186 @@
+.booking-page {
+  padding-top: var(--space-8);
+  padding-bottom: var(--space-9);
+  max-width: 760px;
+}
+
+.booking-form {
+  margin-top: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-7);
+}
+
+.booking-form__section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.booking-form__label {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--text-primary);
+}
+
+.booking-form__select,
+.booking-form__input,
+.booking-form__textarea {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-hairline);
+  background: var(--bg-elevated);
+  color: var(--text-primary);
+  font-size: var(--fs-body-sm);
+  font-family: var(--font-body);
+}
+
+.booking-form__textarea {
+  resize: vertical;
+}
+
+.booking-form__select:focus-visible,
+.booking-form__input:focus-visible,
+.booking-form__textarea:focus-visible {
+  border-color: var(--accent);
+}
+
+.booking-form__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+
+.booking-form__slots {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
+  gap: var(--space-2);
+}
+
+.booking-slot {
+  padding: 0.6rem 0.5rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-hairline);
+  background: var(--bg-elevated);
+  color: var(--text-muted);
+  font-size: var(--fs-body-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color var(--duration-fast) var(--ease-signature),
+              color var(--duration-fast) var(--ease-signature),
+              background-color var(--duration-fast) var(--ease-signature);
+}
+
+.booking-slot:hover:not(.is-disabled) {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.booking-slot.is-active {
+  background: linear-gradient(135deg, var(--champagne-bright), var(--champagne));
+  border-color: transparent;
+  color: var(--ink);
+}
+
+.booking-slot.is-disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  text-decoration: line-through;
+}
+
+.booking-form__hint {
+  color: var(--text-muted);
+  font-size: var(--fs-body-sm);
+  margin: 0;
+}
+
+.booking-form__error {
+  color: var(--rose);
+  font-size: 0.8rem;
+  margin: var(--space-1) 0 0;
+}
+
+.booking-form__submit {
+  align-self: flex-start;
+}
+
+/* ---- Confirmation ---- */
+
+.booking-confirmation {
+  padding-top: var(--space-9);
+  padding-bottom: var(--space-9);
+  max-width: 620px;
+  text-align: center;
+}
+
+.booking-confirmation__badge {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto var(--space-4);
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--champagne-bright), var(--champagne));
+  color: var(--ink);
+  font-size: 1.8rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.booking-confirmation__ref {
+  font-size: var(--fs-body-lg);
+  color: var(--text-muted);
+}
+
+.booking-confirmation__ref strong {
+  color: var(--accent);
+  font-family: var(--font-display);
+  letter-spacing: 0.04em;
+}
+
+.booking-confirmation__details {
+  text-align: left;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5) var(--space-6);
+  margin: var(--space-5) 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.booking-confirmation__details div {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.booking-confirmation__details dt {
+  color: var(--text-muted);
+  font-size: var(--fs-body-sm);
+}
+
+.booking-confirmation__details dd {
+  margin: 0;
+  font-weight: 700;
+  text-align: right;
+}
+
+.booking-confirmation__note {
+  font-size: var(--fs-body-sm);
+}
+
+.booking-confirmation__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+}
+
+@media (max-width: 640px) {
+  .booking-form__grid { grid-template-columns: 1fr; }
+}

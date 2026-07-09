@@ -1,0 +1,99 @@
+.academy-highlights {
+  padding: var(--space-9) 0;
+  background: var(--bg-elevated);
+  border-top: 1px solid var(--border-hairline);
+  border-bottom: 1px solid var(--border-hairline);
+}
+
+.academy-highlights__grid {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: var(--space-8);
+  align-items: center;
+}
+
+.academy-highlights__visual-inner {
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(155deg, #2A1D2F 0%, #46523F 55%, #C9A15A 130%);
+  border: 1px solid var(--border-hairline);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  position: relative;
+  overflow: hidden;
+}
+
+.academy-highlights__visual-inner::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 20%, rgba(228,197,131,0.25), transparent 60%);
+}
+
+.academy-highlights__visual-monogram {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 4rem;
+  color: var(--ivory);
+  z-index: 1;
+}
+
+.academy-highlights__visual-caption {
+  font-size: var(--fs-eyebrow);
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--ivory-dim);
+  z-index: 1;
+}
+
+.academy-highlights__lede {
+  max-width: 52ch;
+}
+
+.academy-highlights__list {
+  list-style: none;
+  margin: var(--space-6) 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.academy-highlights__list li {
+  display: flex;
+  gap: var(--space-4);
+  align-items: flex-start;
+}
+
+.academy-highlights__bullet {
+  flex-shrink: 0;
+  width: 10px;
+  height: 10px;
+  margin-top: 6px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--rose), var(--champagne));
+}
+
+.academy-highlights__item-title {
+  font-size: var(--fs-body);
+  margin-bottom: var(--space-1);
+}
+
+.academy-highlights__item-detail {
+  font-size: var(--fs-body-sm);
+  margin-bottom: 0;
+}
+
+@media (max-width: 900px) {
+  .academy-highlights__grid {
+    grid-template-columns: 1fr;
+  }
+  .academy-highlights__visual-inner {
+    aspect-ratio: 16 / 9;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+}

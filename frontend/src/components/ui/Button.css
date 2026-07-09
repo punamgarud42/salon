@@ -1,0 +1,65 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  border-radius: var(--radius-pill);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform var(--duration-fast) var(--ease-signature),
+              box-shadow var(--duration-base) var(--ease-signature),
+              background-color var(--duration-base) var(--ease-signature),
+              border-color var(--duration-base) var(--ease-signature),
+              color var(--duration-base) var(--ease-signature);
+  white-space: nowrap;
+}
+
+.btn:active { transform: translateY(1px); }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.btn--md { padding: 0.7rem 1.4rem; font-size: var(--fs-body-sm); }
+.btn--lg { padding: 0.95rem 2rem; font-size: var(--fs-body); }
+
+/* Primary — brushed gold fill, the site's main call to action */
+.btn--primary {
+  background: linear-gradient(135deg, var(--champagne-bright), var(--champagne));
+  color: var(--ink);
+}
+.btn--primary:hover:not(:disabled) {
+  box-shadow: var(--shadow-gold-glow);
+  transform: translateY(-1px);
+}
+
+/* Secondary — outlined, for lower-emphasis actions next to a primary */
+.btn--secondary {
+  background: transparent;
+  border-color: var(--border-hairline);
+  color: var(--text-primary);
+}
+.btn--secondary:hover:not(:disabled) {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Ghost — text-only, used inline / in nav */
+.btn--ghost {
+  background: transparent;
+  color: var(--text-muted);
+  padding-left: 0.4rem;
+  padding-right: 0.4rem;
+}
+.btn--ghost:hover:not(:disabled) {
+  color: var(--accent);
+}
+
+/* WhatsApp — distinct, recognizable, used only for the floating action + inline CTAs */
+.btn--whatsapp {
+  background: #25D366;
+  color: #0b2b16;
+}
+.btn--whatsapp:hover:not(:disabled) {
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.35);
+  transform: translateY(-1px);
+}

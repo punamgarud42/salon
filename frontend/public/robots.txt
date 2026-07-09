@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Admin dashboard shouldn't be crawled or indexed — it requires login
+# anyway, but this keeps it out of search results entirely.
+Disallow: /#/admin
+
+Sitemap: https://your-domain.example/sitemap.xml

@@ -1,0 +1,40 @@
+.card {
+  position: relative;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--duration-base) var(--ease-signature),
+              box-shadow var(--duration-base) var(--ease-signature),
+              border-color var(--duration-base) var(--ease-signature);
+}
+
+/* "Mirror shine" — a soft diagonal gleam sweeps across on hover, echoing a
+   vanity mirror catching light. Signature detail kept subtle and single-use
+   per card so it doesn't compete with the KumkumDivider motif. */
+.card--hoverable::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    115deg,
+    transparent 20%,
+    rgba(228, 197, 131, 0.08) 45%,
+    transparent 70%
+  );
+  transform: translateX(-120%);
+  transition: transform var(--duration-slow) var(--ease-signature);
+  pointer-events: none;
+}
+
+.card--hoverable:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-hairline);
+  box-shadow: var(--shadow-md);
+}
+
+.card--hoverable:hover::before {
+  transform: translateX(120%);
+}
