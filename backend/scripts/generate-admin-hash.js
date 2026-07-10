@@ -12,7 +12,7 @@ import bcrypt from 'bcryptjs';
 const password = process.argv[2];
 
 if (!password) {
-  console.error('Usage: node scripts/generate-admin-hash.js "your-password"');
+  console.error('Usage: node backend/scripts/generate-admin-hash.js "your-password"');
   process.exit(1);
 }
 
