@@ -29,12 +29,6 @@ export default function Navbar({ navItems }) {
     return () => window.removeEventListener('hashchange', onHashChange);
   }, []);
 
-  // Lock body scroll while the mobile menu is open
-  useEffect(() => {
-    document.body.style.overflow = mobileOpen ? 'hidden' : '';
-    return () => { document.body.style.overflow = ''; };
-  }, [mobileOpen]);
-
   return (
     <header className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
       <div className="container navbar__inner">
