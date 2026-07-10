@@ -22,7 +22,7 @@ export default function Button({
 
   if (href) {
     return (
-      <a href={href} className={classes} {...rest}>
+      <a href={href} className={classes} onClick={onClick} {...rest}>
         {children}
       </a>
     );

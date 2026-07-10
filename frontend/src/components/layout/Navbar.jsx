@@ -6,18 +6,12 @@ import MobileMenu from './MobileMenu.jsx';
 import { useLanguage } from '../../context/LanguageContext';
 import './Navbar.css';
 
-/**
- * Navbar — sticky top navigation.
- *
- * navItems is passed in (rather than hard-coded) so Phase 8's admin dashboard
- * can eventually reorder/rename nav entries without touching this component;
- * for now App.jsx supplies the default set built from the i18n dictionary.
- */
 export default function Navbar({ navItems }) {
   const { t } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
+  // Scroll backdrop
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
     onScroll();
@@ -25,7 +19,17 @@ export default function Navbar({ navItems }) {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // Lock body scroll while the mobile menu is open.
+  // Close mobile menu whenever the hash/route changes — covers:
+  // - tapping a nav link (hash changes → this fires)
+  // - pressing the browser back button
+  // - any programmatic navigation
+  useEffect(() => {
+    const onHashChange = () => setMobileOpen(false);
+    window.addEventListener('hashchange', onHashChange);
+    return () => window.removeEventListener('hashchange', onHashChange);
+  }, []);
+
+  // Lock body scroll while the mobile menu is open
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
@@ -69,7 +73,11 @@ export default function Navbar({ navItems }) {
         </div>
       </div>
 
-      <MobileMenu open={mobileOpen} onClose={() => setMobileOpen(false)} navItems={navItems} />
+      <MobileMenu
+        open={mobileOpen}
+        onClose={() => setMobileOpen(false)}
+        navItems={navItems}
+      />
     </header>
   );
 }

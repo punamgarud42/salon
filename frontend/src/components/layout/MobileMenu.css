@@ -78,8 +78,18 @@
   color: var(--accent);
 }
 
-.mobile-menu__cta {
+.mobile-menu__cta-link {
+  display: block;
   width: 100%;
+  padding: 1rem var(--space-5);
+  background: linear-gradient(135deg, var(--champagne-bright), var(--champagne));
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  font-weight: 700;
+  text-align: center;
+  border-radius: var(--radius-pill);
+  letter-spacing: 0.03em;
 }
 
 @media (min-width: 901px) {
