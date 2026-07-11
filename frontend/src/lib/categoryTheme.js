@@ -18,3 +18,4 @@ const FALLBACK_GRADIENT = ['#C9A15A', '#C98A93'];
 export function getCategoryGradient(category) {
   return CATEGORY_GRADIENT[category] ?? FALLBACK_GRADIENT;
 }
+

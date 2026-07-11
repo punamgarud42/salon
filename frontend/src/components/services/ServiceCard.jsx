@@ -3,6 +3,7 @@ import Button from '../ui/Button.jsx';
 import SalonIcon from '../ui/SalonIcon.jsx';
 import { getCategoryGradient } from '../../lib/categoryTheme.js';
 import { useLanguage } from '../../context/LanguageContext';
+import { getServiceImage } from './serviceImages.js';
 import './ServiceCard.css';
 
 /**
@@ -13,7 +14,9 @@ import './ServiceCard.css';
 export default function ServiceCard({ service }) {
   const { t } = useLanguage();
   const [c1, c2] = getCategoryGradient(service.category);
-  const hasImage = Boolean(service.image);
+
+  const imageSrc = getServiceImage(service);
+  const hasImage = Boolean(imageSrc);
 
   return (
     <Card className="service-card">
@@ -21,7 +24,7 @@ export default function ServiceCard({ service }) {
         {hasImage ? (
           <>
             <img
-              src={service.image}
+              src={imageSrc}
               alt={service.name}
               className="service-card__image"
               loading="lazy"
