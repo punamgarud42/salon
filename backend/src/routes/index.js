@@ -3,6 +3,8 @@ import healthRoutes from './health.routes.js';
 import authRoutes from './auth.routes.js';
 import businessInfoRoutes from './businessInfo.routes.js';
 import newsletterRoutes from './newsletter.routes.js';
+import uploadsRoutes from './uploads.routes.js';
+import beforeAfterRoutes from './beforeAfter.routes.js';
 import servicesRoutes from './services.routes.js';
 import bookingsRoutes from './bookings.routes.js';
 import coursesRoutes from './courses.routes.js';
@@ -32,5 +34,7 @@ router.use('/testimonials', testimonialsRoutes);          // added in Phase 8
 router.use('/offers', offersRoutes);                      // added in Phase 8
 router.use('/academy-highlights', academyHighlightsRoutes); // added in Phase 8
 router.use('/payments', paymentsRoutes);                  // added in Phase 9
+router.use('/uploads', uploadsRoutes);                    // image uploads via Cloudinary
+router.use('/before-after', beforeAfterRoutes);           // before/after photo pairs
 
 export default router;

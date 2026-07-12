@@ -1,3 +1,5 @@
+import ImageUpload from './ImageUpload.jsx';
+import VideoUpload from './VideoUpload.jsx';
 import './AdminForm.css';
 
 /**
@@ -21,7 +23,26 @@ export default function AdminForm({ fields, values, onChange, onSubmit, onCancel
     >
       {fields.map((field) => (
         <div className="admin-form__field" key={field.name}>
-          <label className="admin-form__label" htmlFor={field.name}>{field.label}</label>
+          {/* image and video components render their own label internally */}
+          {field.type !== 'image' && field.type !== 'video' && (
+            <label className="admin-form__label" htmlFor={field.name}>{field.label}</label>
+          )}
+
+          {field.type === 'image' && (
+            <ImageUpload
+              label={field.label}
+              value={values[field.name] ?? ''}
+              onChange={(url) => handleFieldChange(field.name, url)}
+            />
+          )}
+
+          {field.type === 'video' && (
+            <VideoUpload
+              label={field.label}
+              value={values[field.name] ?? ''}
+              onChange={(url) => handleFieldChange(field.name, url)}
+            />
+          )}
 
           {field.type === 'textarea' && (
             <textarea

@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
 import GalleryGrid from '../components/gallery/GalleryGrid.jsx';
 import BeforeAfterSlider from '../components/gallery/BeforeAfterSlider.jsx';
 import ComparisonPanel from '../components/gallery/ComparisonPanel.jsx';
@@ -7,18 +7,18 @@ import FilterTabs from '../components/ui/FilterTabs.jsx';
 import Reveal from '../components/home/Reveal.jsx';
 import { useBackedList } from '../hooks/useBackedList.js';
 import { DEFAULT_GALLERY_ITEMS, extractGalleryCategories } from '../data/galleryFull.js';
-import { getAllBeforeAfter } from '../data/beforeAfter.js';
+import { DEFAULT_BEFORE_AFTER } from '../data/beforeAfter.js';
 import { useLanguage } from '../context/LanguageContext';
 import './Gallery.css';
 
 export default function Gallery() {
   const { t } = useLanguage();
   const { items: allItems, loading } = useBackedList('/gallery', DEFAULT_GALLERY_ITEMS);
+  const { items: beforeAfterPairs } = useBackedList('/before-after', DEFAULT_BEFORE_AFTER);
   const categories = extractGalleryCategories(allItems);
   const [activeCategory, setActiveCategory] = useState('All');
+  const [activePairId, setActivePairId] = useState(null);
 
-  const beforeAfterPairs = useMemo(() => getAllBeforeAfter(), []);
-  const [activePairId, setActivePairId] = useState(beforeAfterPairs[0]?.id ?? '');
   const activePair = beforeAfterPairs.find((p) => p.id === activePairId) ?? beforeAfterPairs[0];
 
   const filteredItems = activeCategory === 'All'
@@ -75,26 +75,14 @@ export default function Gallery() {
             <Reveal direction="up" delay={120} className="before-after-section__slider">
               <BeforeAfterSlider
                 before={
-                  activePair.beforeImage ? (
-                    <img
-                      src={activePair.beforeImage}
-                      alt="Before"
-                      className="ba-slider__img"
-                    />
-                  ) : (
-                    <ComparisonPanel category={activePair.category} icon={activePair.icon} muted />
-                  )
+                  activePair.beforePhoto
+                    ? <img src={activePair.beforePhoto} alt={`Before — ${activePair.label}`} className="before-after-section__photo" />
+                    : <ComparisonPanel category={activePair.category} icon={activePair.icon} muted />
                 }
                 after={
-                  activePair.afterImage ? (
-                    <img
-                      src={activePair.afterImage}
-                      alt="After"
-                      className="ba-slider__img"
-                    />
-                  ) : (
-                    <ComparisonPanel category={activePair.category} icon={activePair.icon} />
-                  )
+                  activePair.afterPhoto
+                    ? <img src={activePair.afterPhoto} alt={`After — ${activePair.label}`} className="before-after-section__photo" />
+                    : <ComparisonPanel category={activePair.category} icon={activePair.icon} />
                 }
               />
               <p className="before-after-section__caption">{activePair.label}</p>

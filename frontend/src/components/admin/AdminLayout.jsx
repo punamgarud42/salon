@@ -28,6 +28,7 @@ const NAV_SECTIONS = [
     label: 'Content',
     items: [
       { path: '/admin/gallery', label: 'Gallery' },
+      { path: '/admin/before-after', label: 'Before & After' },
       { path: '/admin/testimonials', label: 'Testimonials' },
       { path: '/admin/offers', label: 'Offers' },
     ],

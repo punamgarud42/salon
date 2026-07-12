@@ -79,13 +79,6 @@
   flex-shrink: 0;
 }
 
-.ba-slider__img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
 .ba-slider__handle:focus-visible .ba-slider__handle-grip {
   outline: 2px solid var(--ivory);
   outline-offset: 2px;

@@ -31,7 +31,10 @@ export default function GalleryLightbox({ items, activeIndex, onClose, onNavigat
 
   if (!item) return null;
   const [c1, c2] = getCategoryGradient(item.category);
-  const showPhoto = item.photo && !imgFailed;
+
+  const mediaType = item.mediaType || (item.video ? 'video' : item.photo ? 'image' : 'icon');
+  const showVideo = mediaType === 'video' && item.video;
+  const showPhoto = mediaType === 'image' && item.photo && !imgFailed;
 
   return (
     <div className="lightbox" role="dialog" aria-modal="true" aria-label={item.title}>
@@ -48,15 +51,30 @@ export default function GalleryLightbox({ items, activeIndex, onClose, onNavigat
           ‹
         </button>
 
-        <div className="lightbox__frame" style={!showPhoto ? { background: `linear-gradient(135deg, ${c1}, ${c2})` } : undefined}>
-          {showPhoto ? (
+        <div
+          className="lightbox__frame"
+          style={!showVideo && !showPhoto ? { background: `linear-gradient(135deg, ${c1}, ${c2})` } : undefined}
+        >
+          {showVideo && (
+            <video
+              key={item.video} /* re-mount when item changes so it starts from the beginning */
+              src={item.video}
+              className="lightbox__photo"
+              controls
+              autoPlay
+              playsInline
+              style={{ background: '#0a070c' }}
+            />
+          )}
+          {showPhoto && (
             <img
               src={item.photo}
               alt={`${item.category} — ${item.title}`}
               className="lightbox__photo"
               onError={() => setImgFailed(true)}
             />
-          ) : (
+          )}
+          {!showVideo && !showPhoto && (
             <SalonIcon name={item.icon} size={80} className="lightbox__icon" />
           )}
         </div>

@@ -1,13 +1,3 @@
-import bridalMakeupImage from '../assets/images/Bridal makeup.webp';
-import bridalMehndiImage from '../assets/images/bridal mehndi.jpeg';
-import cleanupImage from '../assets/images/clean up.jpeg';
-import facialImage from '../assets/images/facial.jpeg';
-import hairStyleImage from '../assets/images/hair style.webp';
-import hairColorImage from '../assets/images/hair color.jpeg';
-import hairSpaImage from '../assets/images/hair spa.webp';
-import mehendiImage from '../assets/images/mehndi.jpeg';
-import partyMakeupImage from '../assets/images/party makeup.jpeg';
-
 /**
  * services.js — as of Phase 8, the backend (GET /api/services) is the real
  * source of truth, fetched via useBackedList('/services', DEFAULT_SERVICES)
@@ -18,9 +8,6 @@ import partyMakeupImage from '../assets/images/party makeup.jpeg';
  * The pure functions below (pickFeatured, findServiceById, extractCategories)
  * work on whatever list you pass them — backend-sourced or fallback — so
  * components don't need to know which source they got.
- *
- * To add a new service image from Google Images: download the image, save it
- * inside src/assets/images, import it here, and assign it to the service's image field.
  */
 export const DEFAULT_SERVICES = [
   {
@@ -32,7 +19,6 @@ export const DEFAULT_SERVICES = [
     durationMinutes: 45,
     category: 'Hair',
     icon: 'scissors',
-    image: hairStyleImage,
     featured: true,
   },
   {
@@ -43,7 +29,6 @@ export const DEFAULT_SERVICES = [
     duration: '60 min',
     durationMinutes: 60,
     category: 'Hair',
-    image: hairSpaImage,
     icon: 'scissors',
     featured: false,
   },
@@ -56,7 +41,6 @@ export const DEFAULT_SERVICES = [
     durationMinutes: 90,
     category: 'Hair',
     icon: 'scissors',
-    image: hairColorImage,
     featured: false,
   },
   {
@@ -68,7 +52,6 @@ export const DEFAULT_SERVICES = [
     durationMinutes: 180,
     category: 'Makeup',
     icon: 'veil',
-    image: bridalMakeupImage,
     featured: true,
   },
   {
@@ -80,7 +63,6 @@ export const DEFAULT_SERVICES = [
     durationMinutes: 75,
     category: 'Makeup',
     icon: 'lipstick',
-    image: partyMakeupImage,
     featured: false,
   },
   {
@@ -92,7 +74,6 @@ export const DEFAULT_SERVICES = [
     durationMinutes: 60,
     category: 'Skin',
     icon: 'leaf',
-    image: facialImage,
     featured: true,
   },
   {
@@ -104,7 +85,6 @@ export const DEFAULT_SERVICES = [
     durationMinutes: 30,
     category: 'Skin',
     icon: 'leaf',
-    image: cleanupImage,
     featured: false,
   },
   {
@@ -116,7 +96,6 @@ export const DEFAULT_SERVICES = [
     durationMinutes: 180,
     category: 'Mehendi',
     icon: 'henna',
-    image: bridalMehndiImage,
     featured: true,
   },
   {
@@ -128,7 +107,6 @@ export const DEFAULT_SERVICES = [
     durationMinutes: 45,
     category: 'Mehendi',
     icon: 'henna',
-    image: mehendiImage,
     featured: false,
   },
 ];

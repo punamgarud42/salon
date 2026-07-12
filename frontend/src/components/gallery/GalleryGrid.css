@@ -54,6 +54,31 @@
   pointer-events: none;
 }
 
+/* Play badge shown on video tiles */
+.gallery-grid__video-badge {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  width: 44px;
+  height: 44px;
+  background: rgba(27, 20, 32, 0.65);
+  border: 2px solid rgba(246, 238, 228, 0.7);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  color: rgba(246, 238, 228, 0.9);
+  pointer-events: none;
+  transition: opacity var(--duration-fast) var(--ease-signature);
+}
+
+.gallery-grid__tile:hover .gallery-grid__video-badge {
+  opacity: 0;
+}
+
 .gallery-grid__icon {
   position: relative;
   color: rgba(246, 238, 228, 0.92);

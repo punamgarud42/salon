@@ -16,6 +16,7 @@ import AdminMessages from './AdminMessages.jsx';
 import AdminSubscribers from './AdminSubscribers.jsx';
 import AdminBusinessInfo from './AdminBusinessInfo.jsx';
 import AdminPayments from './AdminPayments.jsx';
+import AdminBeforeAfter from './AdminBeforeAfter.jsx';
 
 const ADMIN_ROUTES = {
   '/admin': AdminDashboard,
@@ -26,6 +27,7 @@ const ADMIN_ROUTES = {
   '/admin/enrollments': AdminEnrollments,
   '/admin/academy-highlights': AdminAcademyHighlights,
   '/admin/gallery': AdminGallery,
+  '/admin/before-after': AdminBeforeAfter,
   '/admin/testimonials': AdminTestimonials,
   '/admin/offers': AdminOffers,
   '/admin/messages': AdminMessages,

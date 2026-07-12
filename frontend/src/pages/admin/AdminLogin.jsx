@@ -10,16 +10,26 @@ export default function AdminLogin() {
   const [error, setError] = useState('');
   const [submitting, setSubmitting] = useState(false);
 
+  const [wakingUp, setWakingUp] = useState(false);
+
   async function handleSubmit(e) {
     e.preventDefault();
     setSubmitting(true);
     setError('');
+    setWakingUp(false);
+
+    // After 4 seconds of waiting, show a "waking up" message so the user
+    // doesn't think it's broken — Render free tier takes 30–60s to start.
+    const wakeTimer = setTimeout(() => setWakingUp(true), 4000);
+
     try {
       await login(email, password);
     } catch (err) {
       setError(err.message);
     } finally {
+      clearTimeout(wakeTimer);
       setSubmitting(false);
+      setWakingUp(false);
     }
   }
 
@@ -50,6 +60,11 @@ export default function AdminLogin() {
         />
 
         {error && <p className="admin-form__error">{error}</p>}
+        {wakingUp && !error && (
+          <p className="admin-login__waking">
+            ⏳ Server is waking up (this can take up to 60 seconds on the free tier)...
+          </p>
+        )}
 
         <button type="submit" className="admin-btn admin-btn--primary admin-login__submit" disabled={submitting}>
           {submitting ? 'Signing in…' : 'Sign In'}

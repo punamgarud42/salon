@@ -1,47 +1,40 @@
+import { useState } from 'react';
 import Card from '../ui/Card.jsx';
 import Button from '../ui/Button.jsx';
 import SalonIcon from '../ui/SalonIcon.jsx';
 import { getCategoryGradient } from '../../lib/categoryTheme.js';
 import { useLanguage } from '../../context/LanguageContext';
-import { getServiceImage } from './serviceImages.js';
 import './ServiceCard.css';
 
 /**
  * ServiceCard — the one card layout used everywhere a service is shown.
- * "Book This" links to #/book?service=<id>, which Booking.jsx reads to
- * preselect that service in the form.
+ * Shows a real photo if one has been uploaded via the admin dashboard;
+ * falls back to the gradient + icon tile if not.
  */
 export default function ServiceCard({ service }) {
   const { t } = useLanguage();
   const [c1, c2] = getCategoryGradient(service.category);
-
-  const imageSrc = getServiceImage(service);
-  const hasImage = Boolean(imageSrc);
+  const [imgFailed, setImgFailed] = useState(false);
+  const showPhoto = service.photo && !imgFailed;
 
   return (
     <Card className="service-card">
-      <div className="service-card__media">
-        {hasImage ? (
-          <>
-            <img
-              src={imageSrc}
-              alt={service.name}
-              className="service-card__image"
-              loading="lazy"
-            />
-            <div className="service-card__overlay">
-              <span className="service-card__category">{service.category}</span>
-            </div>
-          </>
+      <div
+        className="service-card__swatch"
+        style={!showPhoto ? { background: `linear-gradient(135deg, ${c1}, ${c2})` } : undefined}
+      >
+        {showPhoto ? (
+          <img
+            src={service.photo}
+            alt={service.name}
+            className="service-card__photo"
+            loading="lazy"
+            onError={() => setImgFailed(true)}
+          />
         ) : (
-          <div
-            className="service-card__swatch"
-            style={{ background: `linear-gradient(135deg, ${c1}, ${c2})` }}
-          >
-            <SalonIcon name={service.icon} size={36} className="service-card__icon" />
-            <span className="service-card__category">{service.category}</span>
-          </div>
+          <SalonIcon name={service.icon} size={36} className="service-card__icon" />
         )}
+        <span className="service-card__category">{service.category}</span>
       </div>
       <h3 className="service-card__name">{service.name}</h3>
       <p className="service-card__desc">{service.description}</p>

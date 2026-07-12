@@ -8,16 +8,36 @@ import './GalleryGrid.css';
 function GalleryTile({ item, onClick }) {
   const [imgFailed, setImgFailed] = useState(false);
   const [c1, c2] = getCategoryGradient(item.category);
-  const showPhoto = item.photo && !imgFailed;
+
+  const mediaType = item.mediaType || (item.video ? 'video' : item.photo ? 'image' : 'icon');
+  const showVideo = mediaType === 'video' && item.video;
+  const showPhoto = mediaType === 'image' && item.photo && !imgFailed;
+  const showIcon = !showVideo && !showPhoto;
 
   return (
     <button
       className="gallery-grid__tile"
-      style={!showPhoto ? { background: `linear-gradient(135deg, ${c1}, ${c2})` } : undefined}
+      style={showIcon ? { background: `linear-gradient(135deg, ${c1}, ${c2})` } : undefined}
       onClick={onClick}
       aria-label={`View ${item.title}`}
     >
-      {showPhoto ? (
+      {showVideo && (
+        <>
+          <video
+            src={item.video}
+            className="gallery-grid__photo"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+          />
+          {/* Video badge so visitors know they can click to see it full size */}
+          <span className="gallery-grid__video-badge" aria-hidden="true">▶</span>
+        </>
+      )}
+
+      {showPhoto && (
         <img
           src={item.photo}
           alt={`${item.category} — ${item.title}`}
@@ -25,9 +45,12 @@ function GalleryTile({ item, onClick }) {
           loading="lazy"
           onError={() => setImgFailed(true)}
         />
-      ) : (
+      )}
+
+      {showIcon && (
         <SalonIcon name={item.icon} size={40} className="gallery-grid__icon" />
       )}
+
       <span className="gallery-grid__label">{item.title}</span>
     </button>
   );

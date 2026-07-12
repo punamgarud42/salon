@@ -50,3 +50,14 @@
   padding: 0.1rem 0.3rem;
   border-radius: 3px;
 }
+
+.admin-login__waking {
+  font-size: 0.8rem;
+  color: var(--champagne-bright);
+  background: rgba(201, 161, 90, 0.1);
+  border: 1px solid rgba(201, 161, 90, 0.3);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+  margin-top: var(--space-2);
+  line-height: 1.5;
+}

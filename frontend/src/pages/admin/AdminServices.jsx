@@ -17,14 +17,15 @@ export default function AdminServices() {
       fields={[
         { name: 'name', label: 'Name', type: 'text', required: true },
         { name: 'description', label: 'Description', type: 'textarea' },
+        { name: 'photo', label: 'Service Photo', type: 'image' },
         { name: 'price', label: 'Price (₹)', type: 'number', required: true },
         { name: 'duration', label: 'Duration (display, e.g. "45 min")', type: 'text' },
         { name: 'durationMinutes', label: 'Duration (minutes, used for booking slots)', type: 'number', required: true },
         { name: 'category', label: 'Category', type: 'text', required: true },
-        { name: 'icon', label: 'Icon', type: 'select', options: ICON_OPTIONS },
+        { name: 'icon', label: 'Fallback Icon (shown if no photo)', type: 'select', options: ICON_OPTIONS },
         { name: 'featured', label: 'Show on homepage', type: 'checkbox' },
       ]}
-      emptyItem={{ name: '', description: '', price: 0, duration: '', durationMinutes: 30, category: '', icon: 'leaf', featured: false }}
+      emptyItem={{ name: '', description: '', photo: '', price: 0, duration: '', durationMinutes: 30, category: '', icon: 'leaf', featured: false }}
     />
   );
 }
